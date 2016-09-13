@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A fun page</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<script type="text/javascript">
+		var divTwo;
+		var textField;
+		var changeMe;
+		var myBtn;
+
+
+		console.log(window.document);
+		function whenPageLoadsDoThis() {
+			window.document.body.innerHTML += "nothing";
+
+
+			divTwo = window.document.getElementById("two");
+			myBtn = window.document.getElementById("but");
+			myBtn.addEventListener("click",clickMe)
+
+			divTwo.innerHTML = "This is a text I'll try to edit";
+			divTwo.style.fontSize = "30px";
+			divTwo.style.color = "blue";
+
+
+
+			// TEXT FIELD
+
+			var textField = window.document.getElementById("field");
+			textField.style.height="200px";
+
+
+			changeMe = window.document.getElementById("change");
+			
+			changeMe.style.fontSize = "100px";
+
+
+
+		}
+
+		clickMe = function() {
+			change.style.color = "pink";
+			var x = document.getElementById("field").value;
+			console.log(field.value)
+			document.getElementById("change").innerHTML =x;
+		}
+
+		mouseOver = function() {
+
+
+			alert ("Hello World!");
+			divTwo.style.color = "pink";
+		}
+
+
+
+
+
+		window.addEventListener('load', whenPageLoadsDoThis);
+
+	</script>
+</head>
+<body>
+
+	<form>
+		<div id="BootWindow">
+		<div class="form-group">
+			<label for="comment">Put your text here</label>
+			<textarea class="form-control" rows="5" id="comment"></textarea>
+		</div>
+		</div>
+	</form>
+
+
+	<input type="text" id="field" value="put text here">
+
+	<button id ="but"> TEST</button>
+
+	<div id="two">Here is another section</div>
+	<div id="change">I am changing this</div>
+<!-- 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script> -->
+
+</body>
+
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<title>Wordnik test</title>
+
+	<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+	
+	<!-- include the jQuery and jQuery UI scripts -->
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+
+	<!-- plus a jQuery UI theme, here I use "flick" -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="jquery-ui-slider-pips.css">
+	<script src="jquery-ui-slider-pips.js"></script>
+
+
+
+
+
+	<script type="text/javascript">
+
+
+
+		
+		var words;
+		var baseUrl = "http://api.wordnik.com/v4/word.json/";
+		var apiKey = "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"; 
+
+		var myText;
+
+		var input, button;
+		var myButton
+
+		console.log(window.document);
+		function whenPageLoadsDoThis() {
+
+
+			var hiDan = String("Hello Dan :) ")
+
+			window.document.body.innerHTML += hiDan;
+
+
+			// $(".slider").slider().slider("float");
+			// console.log($(".slider").value);
+
+
+		}
+
+
+		function submit() {
+			myText = document.getElementById('myTextArea').value;
+			document.getElementById('myTextArea').innerHTML = myText;
+
+
+			myTransofrmation =document.getElementById("myTextAreaTransformed").innerHTML = myText.toUpperCase();
+
+
+			console.log(myTransofrmation);
+
+
+// SPLITTING MY TEXT INTO ARRAY OF SEPARATE WORDS
+
+
+var str = myText;
+var res = str.split(" ");
+document.getElementById("myTextAreaTransformed").innerHTML = res;
+
+	// I WISH I COULD HAVE AN ARRAY HERE
+
+
+	var myString = String("horse")
+
+
+	getSynonyms (myString, function (words) {
+		var s = "";
+		for (var i = 0; i < 1; i++) {
+			s += words [i]
+		}
+		$("#idSynonymList").html ("<ul>" + s + "</ul>");
+	});
+
+
+
+
+	function getSynonyms (theWord, callback) {
+		var url = baseUrl + theWord + "/relatedWords?useCanonical=true&relationshipTypes=synonym&limitPerRelationshipType=100&api_key=" + apiKey;
+		var jxhr = $.ajax ({ 
+			url: url,
+			dataType: "text" , 
+			timeout: 30000 
+		}) 
+		.success (function (data, status) { 
+			var array = JSON.parse (data);
+			console.log (data);
+			callback (array [0].words)
+		}) 
+		.error (function (status) { 
+			console.log ("getSynonyms: url == " + url + ", error == " + JSON.stringify (status, undefined, 4));
+		});
+	}
+
+
+
+}
+
+
+window.addEventListener('load', whenPageLoadsDoThis);
+
+</script>
+</head>
+<body>
+
+	<div class="divPage">
+		
+		I'm testing synonyms here:
+
+		<div id="idSynonymList"></div>
+	</div>
+
+
+	<div id="centerThis">
+
+		<div id="warmWelcome"> Lowercase to Uppercase Converter  </div>
+		<textarea id="myTextArea" value="put text here">put text here</textarea>
+		<div id= "displayText">
+		</div>
+		<button id ="myButton" onclick="submit()"> SUBMIT </button>
+		
+		<!-- transformed -->
+
+		<textarea id="myTextAreaTransformed" value="put text here">put text here</textarea>
+
+
+
+	</div>
+</div>
+
+</body>
+
+
+</html>
