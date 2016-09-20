@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>  
+<head>  
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">  
+  <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+
+  <style>
+    .apple {
+      background-color: #CCC;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+ 
+  <script type="text/javascript">  
+
+
+    function whenPageLoadsDoThis() {
+      window.document.body.innerHTML;
+
+      //var input = document.getElementById('textfield')._______________
+
+      var replaced = document.getElementById('replacedText').innerHTML;
+      console.log(replaced);
+
+      replaced = replaced.replace(/is/g, replacer);
+      document.getElementById('replacedText').innerHTML = replaced;
+
+
+    }
+    //normalize string and remove all unnecessary characters
+    var str = 'Twas the night before Xmas...';
+    var replaced;//  = "replacement"
+//     var newstr = str.replace(/a/i, replaced);
+// console.log(newstr);  // Twas the night before Christmas...
+
+
+  function replacer(match) {
+    return '<span class="apple">' + match + '</span>';
+  }
+
+//console.log('hello');
+
+
+// document.getElementById('replacedText').innerHTML = replaced;
+
+//var replaced = $("replacedText" )[.text()
+
+
+
+//     function normalize(phone) {
+//     //normalize string and remove all unnecessary characters
+//     phone = phone.replace(/[^\d]/g, "");
+
+//     //check if number length equals to 10
+//     if (phone.length == 10) {
+//         //reformat and return phone number
+//         return phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+//     }
+
+//     return null;
+// }
+window.addEventListener('load', whenPageLoadsDoThis);
+
+
+// var phone = '(123)4567890';
+// phone = normalize(phone); //(123) 456-7890
+// console.log (phone)
+</script>  
+</head>  
+<body>  
+ <div id="replacedText">this is some text</div>
+ <!-- <textarea id="myTextArea" value="put text here">put text here</textarea>-->
+
+ <!-- document.getElementById("xyz").style["padding-top"] = "10px"; -->
+
+
+</body>  
+</html>

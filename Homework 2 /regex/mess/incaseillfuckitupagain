@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<title>Regex test</title>
+
+	<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+
+	<!-- include the jQuery and jQuery UI scripts -->
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+
+	<!-- plus a jQuery UI theme, here I use "flick" -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="jquery-ui-slider-pips.css">
+	<script src="jquery-ui-slider-pips.js"></script>
+
+
+	<script type="text/javascript">
+
+
+		var input, button;
+		var myButton
+		var myText = "place your text here";
+		var writingRegex;
+
+		//console.log('hello');
+// var test = $('#regexArea').val();
+
+		// console.log(window.document);
+		// function whenPageLoadsDoThis() {
+		// 	window.document.body.innerHTML;
+		//
+		//
+		// }
+
+ // $('input').click( function(){ console.log('clicked jquery') });
+
+ // var butt = document.getElementById('myButton');
+
+ // console.log(butt);
+
+// console.log('text area id: '+ $('#myTextArea'));
+
+
+function submit() {
+
+	var myText = document.getElementById('myTextArea').value;
+	document.getElementById('myTextArea').innerHTML = myText;
+
+
+			// $('#someId').val() --> gives you the string
+
+
+			var regexText = $('#regexArea').val();
+			var replaceWord = $('#replacer').val();
+			
+			console.log(replaceWord)
+			//console.log('this is the regex textbox: ' + regexText);
+
+			var regex = new RegExp( regexText );
+
+			//console.log('this is our new regular expression: '+ regex);
+
+
+
+			var textBody = $('#myTextArea').val();
+
+			//console.log(textBody);
+			var result = textBody.match(regex);
+
+				//console.log('result: ' + result);
+
+
+
+
+				var writingRegex = document.getElementById('regexArea').value;
+				console.log(writingRegex);
+
+			// document.getElementById('regexArea').innerHTML = writingRegex;
+			// console.log(writingRegex);
+
+
+
+
+
+
+
+
+
+			var newText=myText.replace(writingRegex, replaceWord);
+
+			document.getElementById("myTextAreaTransformed").innerHTML = newText;
+			console.log(newText);
+
+
+var str = myText;
+			str = str.replace(/abc/g, '');
+
+			var find = 'put';
+			var re = new RegExp(find, 'g');
+
+			str = str.replace(re, replaceWord);
+
+			function replaceAll(str, find, replace) {
+				return str.replace(new RegExp(find, 'g'), replace);
+			}
+
+
+console.log(str)
+
+
+
+		}
+
+
+		//window.addEventListener('load', whenPageLoadsDoThis);
+
+		
+	</script>
+</head>
+<body>
+	<div id="centerThis">
+
+		<div id="warmWelcome"> Lowercase to Uppercase Converter  </div>
+		<textarea id="myTextArea" value="put text here">put text here</textarea>
+		<div id= "displayText">
+		</div>
+		<textarea id="regexArea" value="put text here">regexArea</textarea>
+		
+		<textarea id="replacer" value="favorite word">favoriteWord</textarea>
+
+
+
+		<button id ="myButton" onclick="submit()"> SUBMIT </button>
+
+		<!-- transformed -->
+		http://marcelanowak.com
+
+		<textarea id="myTextAreaTransformed" value="put text here">put text here</textarea>
+
+
+
+
+
+		<div id= "transformed">
+		</div>
+	</div>
+
+</body>
+
+
+</html>

@@ -118,8 +118,13 @@ console.log(reversedB)
 		}) 
 		.success (function (data, status) { 
 			var array = JSON.parse (data);
-		//	console.log (data);
-			callback (array [0].words)
+			console.log(array);
+			if (array.length > 0) {
+			  callback (array [0].words)
+			} else {
+				callback(['.']);
+				console.log("API query failed");
+			}
 		}) 
 		.error (function (status) { 
 			console.log ("getSynonyms: url == " + url + ", error == " + JSON.stringify (status, undefined, 4));

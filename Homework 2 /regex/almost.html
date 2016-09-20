@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<title>Regex test</title>
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+	<script type="text/javascript">
+
+
+		var input, button;
+		var myButton
+		var myText = "place your text here";
+		var writingRegex;
+
+
+		function submit() {
+
+			var myText = document.getElementById('myTextArea').value;
+			document.getElementById('myTextArea').innerHTML = myText;
+
+
+
+
+			var regexText = $('#regexArea').val();
+			var replaceWord = $('#replacer').val();
+			
+			console.log(replaceWord)
+
+			var regex = new RegExp( /regexText/g );
+
+
+
+
+			var textBody = $('#myTextArea').val();
+
+			//console.log(textBody);
+			var result = textBody.match(regex);
+
+				//console.log('result: ' + result);
+
+
+
+
+				var writingRegex = document.getElementById('regexArea').value;
+				console.log(writingRegex);
+
+			// document.getElementById('regexArea').innerHTML = writingRegex;
+			// console.log(writingRegex);
+
+
+
+
+
+
+
+			console.log(regexArea)
+
+//var replaceWordG = /replaceWord/g
+
+var newText=myText.replace(new RegExp(writingRegex,'g'), replaceWord);
+
+
+
+document.getElementById("myTextAreaTransformed").innerHTML = newText;
+console.log(newText);
+
+
+			// var str = myText;
+			// //str = str.replace(/abc/, '');
+
+			// str = str.replace(re, replaceWord);
+			// var find = regexArea;
+			// var re = new RegExp(find, 'g');
+
+			// str = str.replace(re, replaceWord);
+
+			// function replaceAll(str, find, replace) {
+			// 	return str.replace(new RegExp(find, 'g'), replace);
+			// }
+
+
+			//console.log(str)
+
+
+
+		}
+
+
+		//window.addEventListener('load', whenPageLoadsDoThis);
+
+		
+	</script>
+</head>
+<body>
+	<div id="centerThis"> 
+
+		<div id="warmWelcome"> There are some words that we hate. 
+		<br>Let's pick one (on the left ) and replace it with the word we like ( on the right )!</div>
+		<textarea id="myTextArea" value="put text here">The fact that someone like Perez Hilton can make six figures by being an annoying douchebag is amazeballs.</textarea>
+		<div id= "displayText"></div>
+		<!-- <div class="row"> -->
+
+		<div class="columns">
+			<textarea id="regexArea" value="put text here" class="frame">amazeballs</textarea>
+			
+
+			<!-- word you hate -->
+		</div>
+		<div class="columns">
+			<textarea id="replacer" value="favorite word" class="frame">lovely</textarea>
+
+
+			<!-- word you love -->
+		</div>
+
+		<button id ="myButton" onclick="submit()"> SUBMIT </button>
+
+
+		<textarea id="myTextAreaTransformed" value="put text here">wait for your output!</textarea>
+
+	</div>
+
+
+</body>
+
+
+</html>

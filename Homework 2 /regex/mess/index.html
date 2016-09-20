@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<title>Regex test</title>
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+
+	<!-- plus a jQuery UI theme, here I use "flick" -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="jquery-ui-slider-pips.css">
+	<script src="jquery-ui-slider-pips.js"></script>
+
+
+	<script type="text/javascript">
+
+
+		var input, button;
+		var myButton
+		var myText = "place your text here";
+
+		console.log(window.document);
+		function whenPageLoadsDoThis() {
+			window.document.body.innerHTML;
+
+
+			// $(".slider").slider().slider("float");
+			// console.log($(".slider").value);
+
+
+
+		}
+
+
+		function submit() {
+			var myText = document.getElementById('myTextArea').value;
+			document.getElementById('myTextArea').innerHTML = myText;
+
+
+			document.getElementById("myTextAreaTransformed").innerHTML = myText.toUpperCase();
+			console.log(myText.toUpperCase());
+
+
+		}
+
+
+		window.addEventListener('load', whenPageLoadsDoThis);
+
+	</script>
+</head>
+<body>
+	<div id="centerThis">
+
+		<div id="warmWelcome"> Lowercase to Uppercase Converter  </div>
+		<textarea id="myTextArea" value="put text here">put text here</textarea>
+		<div id= "displayText">
+		</div>
+		<button id ="myButton" onclick="submit()"> SUBMIT </button>
+		
+		<!-- transformed -->
+
+		<textarea id="myTextAreaTransformed" value="put text here">put text here</textarea>
+
+
+
+
+
+		<div id= "transformed">
+		</div>
+	</div>
+
+</body>
+
+
+</html>
